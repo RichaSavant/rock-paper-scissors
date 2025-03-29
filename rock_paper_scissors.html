@@ -15,34 +15,28 @@
     <body>
       <p>
         <button onclick="
-          random=Math.random();
-          if(random>=0 && random< 1/3){
-            comp = 'rock';
+          const comp = pickComputerMove();
+          if(comp === 'rock'){
             result='Tie.';
           }
-          else if(random>=1/3 && random<2/3){
-            comp='paper';
+          else if(comp==='paper'){
             result='You lose.';
           }
           else{
-            comp='scissors';
             result='You win.';
           }
           alert(`You picked rock. The computer picked ${comp}. ${result}`);
         ">ROCK</button>
 
         <button onclick="
-          random=Math.random();
-          if(random>=0 && random< 1/3){
-            comp = 'rock';
+          comp = pickComputerMove();
+          if(comp === 'rock'){
             result='You win.';
           }
-          else if(random>=1/3 && random<2/3){
-            comp='paper';
+          else if(comp==='paper'){
             result='Tie.';
           }
           else{
-            comp='scissors';
             result='You lose.';
           }
           alert(`You picked paper. The computer picked ${comp}. ${result}`);
@@ -50,17 +44,14 @@
 
 
         <button onclick="
-        random=Math.random();
-        if(random>=0 && random< 1/3){
-          comp = 'rock';
+        comp = pickComputerMove();
+        if(comp === 'rock'){
           result='You lose.';
         }
-        else if(random>=1/3 && random<2/3){
-          comp='paper';
+        else if(comp==='paper'){
           result='You win.';
         }
         else{
-          comp='scissors';
           result='Tie.';
         }
         alert(`You picked scissors. The computer picked ${comp}. ${result}`);
@@ -69,9 +60,23 @@
 
 
       <script>
-        let random = 0;
+        let result='';
+
+        function pickComputerMove(){
         let comp = '';
-        let result = '';
+        let random=Math.random();
+          if(random>=0 && random< 1/3){
+            comp = 'rock';
+          }
+          else if(random>=1/3 && random<2/3){
+            comp='paper';
+          }
+          else{
+            comp='scissors';
+          }
+        return comp;
+        }
+
       </script>
     </body>
 

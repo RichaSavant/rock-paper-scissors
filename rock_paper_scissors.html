@@ -15,52 +15,21 @@
     <body>
       <p>
         <button onclick="
-          const comp = pickComputerMove();
-          if(comp === 'rock'){
-            result='Tie.';
-          }
-          else if(comp==='paper'){
-            result='You lose.';
-          }
-          else{
-            result='You win.';
-          }
-          alert(`You picked rock. The computer picked ${comp}. ${result}`);
+          playGame('rock');
         ">ROCK</button>
 
         <button onclick="
-          comp = pickComputerMove();
-          if(comp === 'rock'){
-            result='You win.';
-          }
-          else if(comp==='paper'){
-            result='Tie.';
-          }
-          else{
-            result='You lose.';
-          }
-          alert(`You picked paper. The computer picked ${comp}. ${result}`);
+          playGame('paper');
         ">PAPER</button>
 
 
         <button onclick="
-        comp = pickComputerMove();
-        if(comp === 'rock'){
-          result='You lose.';
-        }
-        else if(comp==='paper'){
-          result='You win.';
-        }
-        else{
-          result='Tie.';
-        }
-        alert(`You picked scissors. The computer picked ${comp}. ${result}`);
+          playGame('scissors');
         ">SCISSORS</button>
       </p>
 
 
       <script>
-        let result='';
 
         function pickComputerMove(){
         let comp = '';
@@ -75,6 +44,45 @@
             comp='scissors';
           }
         return comp;
+        }
+
+        function playGame(playerMove){
+          const comp = pickComputerMove();
+          let result = '';
+          if(playerMove === 'rock'){
+            if(comp === 'rock'){
+              result='Tie.';
+            }
+            else if(comp ==='paper'){
+              result='You lose.';
+            }
+            else{
+              result='You win.';
+           }
+          }
+          if(playerMove === 'paper'){
+            if(comp === 'rock'){
+              result='You win.';
+            }
+            else if(comp ==='paper'){
+              result='Tie.';
+            }
+            else{
+              result='You lose.';
+           }
+          }
+          if(playerMove === 'scissors'){
+            if(comp === 'rock'){
+              result='You lose.';
+            }
+            else if(comp ==='paper'){
+              result='You win.';
+            }
+            else{
+              result='Tie.';
+           }
+          }
+        alert(`You picked ${playerMove}. The computer picked ${comp}. ${result}`);
         }
 
       </script>

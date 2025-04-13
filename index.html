@@ -5,8 +5,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>YOU vs. COMPUTER - Rock Paper Scissors</title>
-
-
         <style>
 
         </style>
@@ -28,8 +26,21 @@
         ">SCISSORS</button>
       </p>
 
+      <p>
+        <button onclick="
+          score.wins=0;
+          score.ties=0;
+          score.losses=0;
+          ">Reset Score</button>
+      </p>
+
 
       <script>
+        const score = {
+          wins: 0,
+          losses: 0,
+          ties: 0
+        };
 
         function pickComputerMove(){
         let comp = '';
@@ -82,7 +93,19 @@
               result='Tie.';
            }
           }
-        alert(`You picked ${playerMove}. The computer picked ${comp}. ${result}`);
+
+        if(result === 'You win.'){
+          score.wins++;
+        }
+        else if(result === 'Tie.'){
+          score.ties++;
+        }
+        else{
+          score.losses++;
+        }
+
+        alert(`You picked ${playerMove}. The computer picked ${comp}. ${result}
+Score: Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`);
         }
 
       </script>
